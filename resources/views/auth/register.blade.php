@@ -42,10 +42,10 @@
                             </div>
 
                             <div class="row">
-                                <div class="col-8 text-left">
+                                {{-- <div class="col-8 text-left">
                                     <a href="#" class="btn btn-link">Forgot password</a>
-                                </div>
-                                <div class="col-4 text-right">
+                                </div> --}}
+                                <div class="col 4 d-grid gap-2 d-md-block">
                                     <input type="submit" class="btn btn-primary" value="Register" />
                                 </div>
                             </div>

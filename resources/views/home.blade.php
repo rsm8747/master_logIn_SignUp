@@ -1,4 +1,5 @@
-@extends('layouts.app')
+
+@include('layouts.app')
 @section('content')
 
-<h1>home:{{Auth::user()->name}}</h1>
+<h1>Home: {{ Auth::user()->name }}</h1>

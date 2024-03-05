@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Models\Client;
+use App\Models\User;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -30,3 +33,12 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 
 });
+
+// Route::get('/users', [AuthController::class, 'index'])->name('user.index');
+
+Route::get('/list', function () {
+    $data= Client::all();
+    return view('list',["data"=>$data]);
+});
+Route::view('/add','add');
+Route::post('/add',[AuthController::class,'create']);
