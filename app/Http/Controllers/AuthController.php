@@ -23,8 +23,6 @@ class AuthController extends Controller
         $data = Client::all();
         return view('list', ['data' => $data]);
     }
-
-
     public function login(Request $request)
     {
         $request->validate([
@@ -38,12 +36,10 @@ class AuthController extends Controller
 
         return redirect()->route('login')->withError('Login Details are not valid..');
     }
-
     public function register_view()
     {
         return view('auth.register');
     }
-
     public function register(StoreUserRequest $request)
     {
         $user = User::create([
@@ -58,7 +54,6 @@ class AuthController extends Controller
 
         return redirect()->route('register')->withError('Error');
     }
-
     public function home()
     {
         return view('home');
@@ -69,7 +64,6 @@ class AuthController extends Controller
         Auth::logout();
         return redirect()->route('logout');
     }
-
     public function create(UserRequest $request)
     {
         $client = new Client;
@@ -87,20 +81,16 @@ class AuthController extends Controller
         $request->session()->flash('status', 'Profile Added Successfully...');
         return redirect()->route('list');
     }
-
     public function viewUser($id)
     {
         $user = Client::findOrFail($id);
         return view('view', compact('user'));
     }
-
     public function edit($id)
     {
         $data = Client::find($id);
         return view('edit', ['data' => $data]);
     }
-
-
     public function update(UserRequest $request, $id)
     {
         $client = Client::find($id);
@@ -113,12 +103,10 @@ class AuthController extends Controller
             $request->file('image')->move(public_path('images'), $imageName);
             $client->image = $imageName;
         }
-
         $client->save();
         $request->session()->flash('status', 'Profile Updated Successfully...');
         return redirect()->route('list');
     }
-
     public function delete($id)
     {
         Client::find($id)->delete();

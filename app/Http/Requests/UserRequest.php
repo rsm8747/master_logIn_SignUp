@@ -24,7 +24,7 @@ class UserRequest extends FormRequest
     public function rules()
     {
         return [
-           
+
             // Add any other validation rules you need here
         ];
     }

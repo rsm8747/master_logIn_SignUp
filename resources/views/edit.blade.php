@@ -1,5 +1,4 @@
 @extends('layouts.app')
-
 @section('content')
     <div class="container mt-3">
         <h3><i><b><u>Update Your Details....</u></b></i></h3>
@@ -13,13 +12,13 @@
                             <div class="mb-3">
                                 <div class="image123" style="border: 2px solid black; max-width: 200px">
                                     @if ($data->image)
-                                        <img src="{{ asset('images/' . $data->image) }}" alt="User Image"
-                                            width="200px" height="200px">
+                                        <img src="{{ asset('images/' . $data->image) }}" alt="User Image" width="200px"
+                                            height="200px">
                                     @else
                                         <p>No image uploaded</p>
                                     @endif
                                 </div>
-                                <label for="image" class="form-label">Upload Image</label><br>
+                                <label for="image" class="form-label">Change Image</label><br>
                                 <input type="file" name="image" class="form-control" id="image">
                             </div>
                         </div>
@@ -37,8 +36,7 @@
                             </div>
                             <div class="mb-3">
                                 <label for="address" class="form-label">Address</label>
-                                <textarea class="form-control" name="address" id="address"
-                                    rows="3" required>{{ $data->address }}</textarea>
+                                <textarea class="form-control" name="address" id="address" rows="3" required>{{ $data->address }}</textarea>
                             </div>
                             <!-- Gender Options -->
                             <div class="row">
@@ -53,9 +51,8 @@
                                             </label>
                                         </div>
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="gender"
-                                                value="female" id="flexRadioFemale"
-                                                {{ $data->gender == 'female' ? 'checked' : '' }}>
+                                            <input class="form-check-input" type="radio" name="gender" value="female"
+                                                id="flexRadioFemale" {{ $data->gender == 'female' ? 'checked' : '' }}>
                                             <label class="form-check-label" for="flexRadioFemale">
                                                 Female
                                             </label>
@@ -68,12 +65,12 @@
                                         <select class="form-select" id="salute" name="salute" aria-label="Title"
                                             required>
                                             <option selected disabled>Please select</option>
-                                            <option value="Single"
-                                                {{ $data->salute == 'Single' ? 'selected' : '' }}>Single</option>
-                                            <option value="Married"
-                                                {{ $data->salute == 'Married' ? 'selected' : '' }}>Married</option>
-                                            <option value="Divorced"
-                                                {{ $data->salute == 'Divorced' ? 'selected' : '' }}>Divorced</option>
+                                            <option value="Single" {{ $data->salute == 'Single' ? 'selected' : '' }}>Single
+                                            </option>
+                                            <option value="Married" {{ $data->salute == 'Married' ? 'selected' : '' }}>
+                                                Married</option>
+                                            <option value="Divorced" {{ $data->salute == 'Divorced' ? 'selected' : '' }}>
+                                                Divorced</option>
                                         </select>
                                     </div>
                                 </div>
