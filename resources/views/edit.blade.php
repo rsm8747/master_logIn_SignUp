@@ -7,7 +7,24 @@
 
             @csrf
 
-
+            <div class="row">
+                 <!-- Image Upload -->
+                <div class="col-2">
+                    <div class="mb-3">
+                        <label class="form-label">Image</label>
+                    <div class="image123" style="border: 2px solid black ; max-width: 200px">
+                        @if ($data->image)
+                            <img src="{{ asset('images/' . $data->image) }}" alt="User Image" width="200px" height="200px">
+                        @else
+                            <p>No image uploaded</p>
+                        @endif
+                    </div>
+                        <label for="image" class="form-label">Upload Image</label><br>
+                        <input type="file" name="image" class="form-control" id="image">
+                    </div>
+                </div>
+                <div class="col-md-1"></div>
+            <div class="col-md-9">
             <div class="mb-3">
                 <label for="name" class="form-label">Name</label>
                 <input type="text" name="name" class="form-control" id="name" value="{{ $data->name }}"
@@ -55,13 +72,7 @@
                         </select>
                     </div>
                 </div>
-                <!-- Image Upload -->
-                <div class="col-6">
-                    <div class="mb-3">
-                        <label for="image" class="form-label">Upload Image</label><br>
-                        <input type="file" name="image" class="form-control" id="image">
-                    </div>
-                </div>
+               
             </div>
 
             <!-- Terms & Conditions -->
@@ -74,6 +85,8 @@
                         Agree Terms & Conditions
                     </label>
                 </div>
+            </div>
+            </div>
             </div>
             <hr>
             <!-- Submit Button -->

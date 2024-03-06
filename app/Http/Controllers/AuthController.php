@@ -85,24 +85,14 @@ class AuthController extends Controller
         
         // Handle image upload
         if ($request->hasFile('image')) {
-        
-            $file = $request->file('image');
-            $extenstion = $file->getClientOriginalExtension();
-            $filename = time().'.'.$extenstion;
-            $file->move('uploads/clients/', $filename);
-            $client->image = $filename;
+            $imageName = time() . '.' . $request->file('image')->getClientOriginalName();
+            $request->file('image')->move(public_path('images'), $imageName);
+            $client->image = $imageName;
         }
 
         $client->save();
-        return redirect()->back()->with('message','Profile Image Upload Successfully');
-            //     $imageName = time() . '.' . $request->file('image')->getClientOriginalExtension();
-        //     $request->file('image')->move(public_path('images'), $imageName);
-        //     $client->image = $imageName;
-        // }
-
-        // $client->save();
-        // $request->session()->flash('status', 'Profile Added Successfully...');
-        // return redirect()->route('list');
+        $request->session()->flash('status', 'Profile Added Successfully...');
+        return redirect()->route('list');
     }
 
     public function viewUser($id)
