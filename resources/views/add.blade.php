@@ -1,23 +1,20 @@
 @extends('layouts.app')
 @section('content')
     <div class="container mt-5">
+        <h3>Add User</h3>
         <form method="post" action="">
             @csrf
-            <div class="mb-3">
-                <select class="form-select" id="salute" name="salute" aria-label="Title" required>
-                    <option selected disabled>Salute</option>
-                    <option value="Mr">Mr</option>
-                    <option value="Mrs">Mrs</option>
-                </select>
-            </div>
-            
+
+
+
             <div class="mb-3">
                 <label for="name" class="form-label">Name</label>
                 <input type="text" name="name" class="form-control" id="name" placeholder="Rahul More" required>
             </div>
             <div class="mb-3">
                 <label for="email" class="form-label">Email address</label>
-                <input type="email" name="email" class="form-control" id="email" placeholder="name@example.com" required>
+                <input type="email" name="email" class="form-control" id="email" placeholder="name@example.com"
+                    required>
             </div>
             <div class="mb-3">
                 <label for="address" class="form-label">Address</label>
@@ -25,22 +22,43 @@
             </div>
 
             <!-- Gender Options -->
-            <div class="mb-3">
-                <label class="form-label" required>Gender</label>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="gender" value="male" id="flexRadioMale">
-                    <label class="form-check-label" for="flexRadioMale">
-                        Male
-                    </label>
+            <div class="row">
+                <div class="col-3">
+                    <div class="mb-3">
+                        <label class="form-label" required>Gender</label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="gender" value="male" id="flexRadioMale">
+                            <label class="form-check-label" for="flexRadioMale">
+                                Male
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="gender" value="female"
+                                id="flexRadioFemale">
+                            <label class="form-check-label" for="flexRadioFemale">
+                                Female
+                            </label>
+                        </div>
+                    </div>
                 </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="gender" value="female" id="flexRadioFemale">
-                    <label class="form-check-label" for="flexRadioFemale">
-                        Female
-                    </label>
+                <div class="col-3">
+                    <div class="mb-3">Status:
+                        <select class="form-select" id="salute" name="salute" aria-label="Title" required>
+                            <option selected disabled>Select</option>
+                            <option value="Single">Single</option>
+                            <option value="Married">Married</option>
+                            <option value="Divorced">Divorced</option>
+                        </select>
+                    </div>
+                </div>
+                <!-- Image Upload -->
+                <div class="col-6">
+                    <div class="mb-3">
+                        <label for="image" class="form-label">Upload Image</label>
+                        <input type="file" name="image" class="form-control" id="image">
+                    </div>
                 </div>
             </div>
-
             <!-- Terms & Conditions -->
             <div class="mb-3">
                 <div class="form-check" required>
@@ -50,14 +68,14 @@
                     </label>
                 </div>
             </div>
-            <!-- Image Upload -->
-            <div class="mb-3">
-                <label for="image" class="form-label">Upload Image</label>
-                <input type="file" name="image" class="form-control" id="image">
-            </div>
-            
+            <hr>
             <!-- Submit Button -->
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary">Submit</button>
+                <a href="/list">
+                    <button type="button" class="btn btn-secondary">Back</button>
+                </a>
+            </div>
         </form>
     </div>
 @endsection
