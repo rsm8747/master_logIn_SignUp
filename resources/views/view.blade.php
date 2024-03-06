@@ -1,61 +1,35 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container mt-5">
-    <h3><i><b><u>Profile View</u></b></i></h3>
-    <style>
-        
-    </style>
-    <form>
-        <div class="row">
-            <div class="col-md-2">
-                <div class="mb-3">
-                    <label class="form-label">Image</label>
-                    <div class="image123" style="border: 2px solid black ; max-width: 200px">
-                        @if ($user->image)
-                            <img src="{{ asset('images/' . $user->image) }}" alt="User Image" width="200px" height="200px">
-                        @else
-                            <p>No image uploaded</p>
-                        @endif
-                    </div>
+<h3><i><b><u>Profile View</u></b></i></h3>
+<div class="container mt-7">
+    <div class="card" style="width: 20rem;">
+        <img src="{{ $user->image ? asset('images/' . $user->image) : 'placeholder.jpg' }}" class="card-img-top" alt="User Image" width="200px" height="200px">
+        <div class="card-body">
+            <h3 class="card-title">{{ $user->name }}</h3>
+            <p class="card-text"><strong>Email: </strong>{{ $user->email }}</p>
+            <p class="card-text"><strong>Gender: </strong>{{ $user->gender }}</p>
+            <p class="card-text"><strong>Status: </strong>{{ $user->salute }}</p>
+            <p class="card-text"><strong>Address: </strong>{{ $user->address }}</p>
+            {{-- <p class="card-text"><strong>Address: </strong>{{ $user->address }}</p>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item"> <strong>Status: </strong>{{ $user->salute }}</li>
+                <li class="list-group-item"> <strong>Gender: </strong>{{ ucfirst($user->gender) }}</li>
+            </ul> --}}
+            <div class="card-body">
+                <div class="text-center">
+                    <a href="{{ route('list') }}" class="btn btn-secondary">Back</a>
                 </div>
             </div>
-            <div class="col-md-1"></div>
-            <div class="col-md-9">
-        <div class="mb-3">
-            <label for="name" class="form-label">Name</label>
-            <input type="text" id="name" class="form-control" value="{{ $user->name }}" readonly>
         </div>
-        <div class="mb-3">
-            <label for="email" class="form-label">Email address</label>
-            <input type="email" id="email" class="form-control" value="{{ $user->email }}" readonly>
-        </div>
-        <div class="mb-3">
-            <label for="address" class="form-label">Address</label>
-            <textarea class="form-control" id="address" rows="3" readonly>{{ $user->address }}</textarea>
-        </div>
-        <div class="row">
-            <div class="col-md-4">
-                <div class="mb-3">
-                    <label class="form-label">Salute</label>
-                    <input type="text" class="form-control" value="{{ $user->salute }}" readonly>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="mb-3">
-                    <label class="form-label">Gender</label>
-                    <input type="text" class="form-control" value="{{ ucfirst($user->gender) }}" readonly>
-                </div>
-            </div>
-            
-        </div>
-            </div></div>
-        
-        
-        <hr>
-        <div class="text-center">
-            <a href="{{ route('list') }}" class="btn btn-secondary">Back</a>
-        </div>
-    </form>
+    </div>
+<style>
+    .container
+    {
+        padding-top: 2rem;
+        max-width: 500px;
+        max-height: 700px;
+    }
+    </style>    
 </div>
 @endsection
