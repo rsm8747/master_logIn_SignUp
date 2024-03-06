@@ -5,7 +5,6 @@
         <form method="post" action="">
             @csrf
 
-
             <div class="row">
                 <div class="col-md-2">
                     <!-- Image Upload -->
@@ -62,7 +61,6 @@
                                 </select>
                             </div>
                         </div>
-
                     </div>
                     <!-- Terms & Conditions -->
                     <div class="mb-3">
@@ -83,7 +81,26 @@
                     <button type="button" class="btn btn-secondary">Back</button>
                 </a>
             </div>
-
         </form>
     </div>
+@endsection
+
+@section('styles')
+    <style>
+        .uploadButton {
+            margin-right: 20px;
+            border: none;
+            background: #084cdf;
+            padding: 10px 20px;
+            border-radius: 10px;
+            color: #fff;
+            cursor: pointer;
+            transition: background .2s ease-in-out;
+        }
+
+        .uploadButton {
+            background: #0d45a5;
+        }
+
+    </style>
 @endsection
