@@ -44,14 +44,8 @@ class AuthController extends Controller
         return view('auth.register');
     }
 
-    public function register(Request $request)
+    public function register(StoreUserRequest $request)
     {
-        $request->validate([
-            'name' => 'required',
-            'email' => 'required|unique:users|email',
-            'password' => 'required|confirmed'
-        ]);
-
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
@@ -76,12 +70,8 @@ class AuthController extends Controller
         return redirect()->route('logout');
     }
 
-    public function create(Request $request)
+    public function create(UserRequest $request)
     {
-        $request->validate([
-            // Define validation rules here
-        ]);
-
         $client = new Client;
         $client->fill($request->all());
         $client->terms = $request->has('terms') ? 1 : 0;
@@ -111,12 +101,8 @@ class AuthController extends Controller
     }
 
 
-    public function update(Request $request, $id)
+    public function update(UserRequest $request, $id)
     {
-        $request->validate([
-            // Define validation rules here
-        ]);
-
         $client = Client::find($id);
         $client->fill($request->all());
         $client->terms = $request->has('terms') ? 1 : 0;

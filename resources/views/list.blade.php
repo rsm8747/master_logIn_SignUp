@@ -8,7 +8,7 @@
 @endif
 <div class="container">
     <h3><i><b><u>Profile Details are as:</u></b></i></h3>
-    <table class="table table-striped">
+    <table class="table table-hover">
         <thead>
             <tr>
                 <th scope="col">#</th>

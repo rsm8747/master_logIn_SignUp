@@ -30,6 +30,7 @@
         max-width: 500px;
         max-height: 700px;
     }
+    
     </style>    
 </div>
 @endsection
