@@ -47,6 +47,10 @@
                                 </div> --}}
                                 <div class="col 4 d-grid gap-2 d-md-block">
                                     <input type="submit" class="btn btn-primary" value="Register" />
+                                    <a href="{{ route('login') }}" class="btn btn-secondary">Log In</a>
+
+                                    
+                                    {{-- <a href="login" class="btn btn-secondary" value="Log In"></a> --}}
                                 </div>
                             </div>
                         </form>
