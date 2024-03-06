@@ -124,9 +124,10 @@ class AuthController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    {
-        
-    }
+{
+    $data = Client::find($id);
+    return view('edit', ['data' => $data]);
+}
 
     /**
      * Update the specified resource in storage.
@@ -136,9 +137,26 @@ class AuthController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {
-        //
+{
+    $client = Client::find($id);
+    $client->title = $request->input('salute');
+    $client->name = $request->input('name');
+    $client->email = $request->input('email');
+    $client->address = $request->input('address');
+    $client->gender = $request->input('gender');
+    $client->terms = $request->has('terms') ? 1 : 0;
+    // Handle image upload
+    if ($request->hasFile('image')) {
+        $image = $request->file('image');
+        $imageName = time() . '.' . $image->getClientOriginalExtension();
+        $image->move(public_path('images'), $imageName);
+        $client->image = $imageName;
     }
+    $client->save();
+    $request->session()->flash('status', 'Profile Updated Successfully...');
+    return redirect('list');
+}
+
 
     /**
      * Remove the specified resource from storage.
@@ -146,8 +164,11 @@ class AuthController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
-        //
-    }
+    public function delete($id)
+{
+    Client::find($id)->delete();
+    \Session::flash('status', 'Profile is deleted');
+    return redirect('list');
+}
+
 }

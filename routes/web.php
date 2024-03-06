@@ -42,3 +42,10 @@ Route::get('/list', function () {
 });
 Route::view('/add','add');
 Route::post('/add',[AuthController::class,'create']);
+Route::get('/edit/{id}', [AuthController::class, 'edit'])->name('edit');
+// Route::post('/update/{id}', [AuthController::class, 'update'])->name('update');
+Route::post('/update/{id}', [AuthController::class, 'update'])->name('update.details');
+
+// Route::get('/delete/{id}', [AuthController::class, 'delete'])->name('delete');
+Route::delete('/delete/{id}', [AuthController::class, 'delete'])->name('delete');
+
