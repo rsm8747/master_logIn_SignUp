@@ -13,7 +13,7 @@ class StoreUserRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true; // Allow all users to make this request
     }
 
     /**
@@ -22,12 +22,11 @@ class StoreUserRequest extends FormRequest
      * @return array<string, mixed>
      */
     public function rules()
-{
-    return [
-        'name' => 'required',
-        'email' => 'required|unique:users|email',
-        'password' => 'required|confirmed'
-    ];
-}
-
+    {
+        return [
+            'name' => 'required',
+            'email' => 'required|unique:users|email',
+            'password' => 'required|confirmed'
+        ];
+    }
 }

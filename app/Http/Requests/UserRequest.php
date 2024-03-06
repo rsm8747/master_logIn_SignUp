@@ -13,7 +13,7 @@ class UserRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true; // Allow all users to make this request
     }
 
     /**
@@ -22,11 +22,10 @@ class UserRequest extends FormRequest
      * @return array<string, mixed>
      */
     public function rules()
-{
-    return [
-        'email' => 'required',
-        'password' => 'required',
-    ];
-}
-
+    {
+        return [
+           
+            // Add any other validation rules you need here
+        ];
+    }
 }
