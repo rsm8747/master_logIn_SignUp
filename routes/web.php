@@ -33,19 +33,14 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 
 });
-
-// Route::get('/users', [AuthController::class, 'index'])->name('user.index');
-
-Route::get('/list', function () {
-    $data= Client::all();
-    return view('list',["data"=>$data]);
-});
-Route::view('/add','add');
-Route::post('/add',[AuthController::class,'create']);
+Route::group(['middleware' => 'auth'], function () {
+// crud routes
+Route::get('/list', [AuthController::class, 'list'])->name('list');
+Route::view('/add', 'add');
+Route::post('/add', [AuthController::class, 'create']);
 Route::get('/edit/{id}', [AuthController::class, 'edit'])->name('edit');
-// Route::post('/update/{id}', [AuthController::class, 'update'])->name('update');
 Route::post('/update/{id}', [AuthController::class, 'update'])->name('update.details');
-
-// Route::get('/delete/{id}', [AuthController::class, 'delete'])->name('delete');
 Route::delete('/delete/{id}', [AuthController::class, 'delete'])->name('delete');
-
+Route::get('/user/{id}', [AuthController::class, 'viewUser'])->name('user.view');
+Route::get('logout', [AuthController::class, 'logout'])->name('logout');
+});
