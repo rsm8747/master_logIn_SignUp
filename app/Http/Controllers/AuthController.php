@@ -7,6 +7,9 @@ use App\Models\User;
 use App\Models\Client;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use App\Http\Requests\StoreUserRequest;
+use App\Http\Requests\UserRequest;
+
 
 class AuthController extends Controller
 {
@@ -16,10 +19,10 @@ class AuthController extends Controller
     }
 
     public function list()
-{
-    $data = Client::all();
-    return view('list', ['data' => $data]);
-}
+    {
+        $data = Client::all();
+        return view('list', ['data' => $data]);
+    }
 
 
     public function login(Request $request)
@@ -70,7 +73,7 @@ class AuthController extends Controller
     public function logout()
     {
         Auth::logout();
-        return redirect()->route('');
+        return redirect()->route('logout');
     }
 
     public function create(Request $request)
@@ -82,7 +85,7 @@ class AuthController extends Controller
         $client = new Client;
         $client->fill($request->all());
         $client->terms = $request->has('terms') ? 1 : 0;
-        
+
         // Handle image upload
         if ($request->hasFile('image')) {
             $imageName = time() . '.' . $request->file('image')->getClientOriginalName();
@@ -102,10 +105,10 @@ class AuthController extends Controller
     }
 
     public function edit($id)
-{
-    $data = Client::find($id);
-    return view('edit', ['data' => $data]);
-}
+    {
+        $data = Client::find($id);
+        return view('edit', ['data' => $data]);
+    }
 
 
     public function update(Request $request, $id)

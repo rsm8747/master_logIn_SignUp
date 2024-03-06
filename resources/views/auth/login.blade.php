@@ -36,10 +36,15 @@
 
                             <div class="row">
                                 <div class="col-8 text-left">
-                                    <a href="register" class="btn btn-link">Forgot Password</a>
+                                    {{-- <a href="register" class="btn btn-link">Forgot Password</a> --}}
                                 </div>
-                                <div class="col-4 text-right">
+                                {{-- <div class="col-4 text-right">
                                     <input type="submit" class="btn btn-primary" value="Login" />
+                                    <input type="submit" class="btn btn-primary" value="Register" />
+                                </div> --}}
+                                <div class="col 4 d-grid gap-2 d-md-block">
+                                    <input type="submit" class="btn btn-primary" value="Log In" />
+                                    <a href="{{ route('register') }}" class="btn btn-secondary">Register</a>
                                 </div>
                             </div>
                         </form>
