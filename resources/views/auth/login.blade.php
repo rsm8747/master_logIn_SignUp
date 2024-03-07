@@ -2,7 +2,6 @@
 @section('content')
     <div class="container">
         <div class="row">
-
             <div class="col-md-4 offset-md-4">
                 <div class="card form-holder">
                     <div class="card-body">
@@ -26,6 +25,7 @@
                                     <p class="text-danger">{{ $errors->first('email') }}</p>
                                 @endif
                             </div>
+
                             <div class="form-group">
                                 <label>Password</label>
                                 <input type="password" name="password" class="form-control" placeholder="Password">
@@ -33,16 +33,16 @@
                                     <p class="text-danger">{{ $errors->first('password') }}</p>
                                 @endif
                             </div>
-
+                            <br>
                             <div class="row">
-                                <div class="col-8 text-left">
-                                    {{-- <a href="register" class="btn btn-link">Forgot Password</a> --}}
-                                </div>
+                                {{-- <div class="col-8 text-left"> --}}
+                                {{-- <a href="register" class="btn btn-link">Forgot Password</a> --}}
+                                {{-- </div> --}}
                                 {{-- <div class="col-4 text-right">
                                     <input type="submit" class="btn btn-primary" value="Login" />
                                     <input type="submit" class="btn btn-primary" value="Register" />
                                 </div> --}}
-                                <div class="col 4 d-grid gap-2 d-md-block">
+                                <div class="col-12 d-grid gap-2 d-md-block">
                                     <input type="submit" class="btn btn-primary" value="Log In" />
                                     <a href="{{ route('register') }}" class="btn btn-secondary">Register</a>
                                 </div>
