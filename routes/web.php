@@ -43,4 +43,11 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/update/{id}', [AuthController::class, 'update'])->name('update.details');
     Route::delete('/delete/{id}', [AuthController::class, 'delete'])->name('delete');
     Route::get('/user/{id}', [AuthController::class, 'viewUser'])->name('user.view');
+
+    // Route::get('/list', [AuthController::class, 'advance'])->name('advance_search');
+    // Route::get('/list', [AuthController::class, 'advance'])->name('list');
+    Route::get('/list', [AuthController::class, 'advance'])->name('list');
+
+    // Route::get('/list', [AuthController::class, 'advance'])->name('advance_search');
+
 });

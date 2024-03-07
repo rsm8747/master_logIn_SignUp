@@ -22,7 +22,7 @@ class AuthController extends Controller
 
     public function list()
     {
-        $data = Client::paginate(5);
+        $data = Client::all();
         return view('list', ['data' => $data]);
     }
 
@@ -116,4 +116,21 @@ class AuthController extends Controller
         session()->flash('status', 'Profile is Deleted');
         return redirect()->route('list');
     }
+    public function advance(Request $request)
+    {
+        $query = Client::query();
+        if ($request->has('name')) {
+            $query->where('name', 'LIKE', '%' . $request->name . '%')
+                ->orWhere('email', 'LIKE', '%' . $request->name . '%')
+                ->orWhere('address', 'LIKE', '%' . $request->name . '%')
+                ->orWhere('gender', 'LIKE', '%' . $request->name . '%')
+                ->orWhere('salute', 'LIKE', '%' . $request->name . '%');
+        }
+        $data = $query->paginate(5);
+        if ($data->isEmpty()) {
+            $request->session()->flash('status', 'Not Available');
+        }
+        return view('list', compact('data'));
+    }
+
 }
