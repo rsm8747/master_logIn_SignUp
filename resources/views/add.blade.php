@@ -39,14 +39,14 @@
                                     <div class="mb-3">
                                         <label class="form-label" required>Gender</label>
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="gender" value="male"
+                                            <input class="form-check-input" type="radio" name="gender" value="Male"
                                                 id="flexRadioMale">
                                             <label class="form-check-label" for="flexRadioMale">
                                                 Male
                                             </label>
                                         </div>
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="gender" value="female"
+                                            <input class="form-check-input" type="radio" name="gender" value="Female"
                                                 id="flexRadioFemale">
                                             <label class="form-check-label" for="flexRadioFemale">
                                                 Female

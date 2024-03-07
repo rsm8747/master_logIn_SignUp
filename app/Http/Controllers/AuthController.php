@@ -6,9 +6,11 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Client;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\StoreUserRequest;
 use App\Http\Requests\UserRequest;
+
 
 
 class AuthController extends Controller
@@ -20,9 +22,10 @@ class AuthController extends Controller
 
     public function list()
     {
-        $data = Client::all();
+        $data = Client::paginate(5);
         return view('list', ['data' => $data]);
     }
+
     public function login(Request $request)
     {
         $request->validate([
@@ -75,8 +78,8 @@ class AuthController extends Controller
             $imageName = time() . '.' . $request->file('image')->getClientOriginalName();
             $request->file('image')->move(public_path('images'), $imageName);
             $client->image = $imageName;
+            var_dump($request->file('images'));
         }
-
         $client->save();
         $request->session()->flash('status', 'Profile Added Successfully...');
         return redirect()->route('list');
@@ -110,7 +113,7 @@ class AuthController extends Controller
     public function delete($id)
     {
         Client::find($id)->delete();
-        session()->flash('status', 'Profile is deleted');
+        session()->flash('status', 'Profile is Deleted');
         return redirect()->route('list');
     }
 }
