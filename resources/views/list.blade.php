@@ -1,6 +1,8 @@
 @include('layouts.app')
 {{-- @section('content') --}}
+
 @if (Session::get('status'))
+
     <div class="alert alert-success" role="alert">
         {{ Session::get('status') }}
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
@@ -9,6 +11,16 @@
 
 <div class="container">
     <h3><i><b><u>Profile Details are as:</u></b></i></h3>
+    {{-- <form action="{{ route('advance_search') }}" method="GET" class="d-flex"> --}}
+        <form action="{{ route('list') }}" method="GET" class="d-flex">
+        @csrf
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="name">
+        <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+            <button type="submit" class="btn btn-outline-primary">Search</button>
+            <a href="{{ route('list') }}" class="btn btn-outline-secondary">Clear</a>
+        </div>
+    </form>
+    
     <div class="table-responsive">
         <table class="table table-hover">
             <thead>
@@ -76,3 +88,11 @@
         {{-- @endsection --}}
     </nav>
 </div>
+
+<script>
+    function refreshPage() {
+        location.reload();
+    }
+    </script>
+    
+
