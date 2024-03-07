@@ -12,11 +12,6 @@
                 <p class="card-text"><strong>Gender: </strong>{{ ucfirst($user->gender) }}</p>
                 <p class="card-text"><strong>Status: </strong>{{ ucfirst($user->salute) }}</p>
                 <p class="card-text"><strong>Address: </strong>{{ ucfirst($user->address) }}</p>
-                {{-- <p class="card-text"><strong>Address: </strong>{{ $user->address }}</p>
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item"> <strong>Status: </strong>{{ $user->salute }}</li>
-                <li class="list-group-item"> <strong>Gender: </strong>{{ ucfirst($user->gender) }}</li>
-            </ul> --}}
                 <div class="card-body">
                     <div class="text-center">
                         <a href="{{ route('list') }}" class="btn btn-secondary">Back</a>
