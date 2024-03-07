@@ -39,7 +39,7 @@ class AuthController extends Controller
 
         return redirect()->route('login')->withError('Login Details are not valid..');
     }
-    public function register_view()
+    public function registerView()
     {
         return view('auth.register');
     }
