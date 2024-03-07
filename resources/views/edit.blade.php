@@ -44,15 +44,15 @@
                                     <div class="mb-3">
                                         <label class="form-label" for="gender" required>Gender</label>
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="gender" value="male"
-                                                id="flexRadioMale" {{ $data->gender == 'male' ? 'checked' : '' }}>
+                                            <input class="form-check-input" type="radio" name="gender" value="Male"
+                                                id="flexRadioMale" {{ $data->gender == 'Male' ? 'checked' : '' }}>
                                             <label class="form-check-label" for="flexRadioMale">
                                                 Male
                                             </label>
                                         </div>
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="gender" value="female"
-                                                id="flexRadioFemale" {{ $data->gender == 'female' ? 'checked' : '' }}>
+                                            <input class="form-check-input" type="radio" name="gender" value="Female"
+                                                id="flexRadioFemale" {{ $data->gender == 'Female' ? 'checked' : '' }}>
                                             <label class="form-check-label" for="flexRadioFemale">
                                                 Female
                                             </label>
