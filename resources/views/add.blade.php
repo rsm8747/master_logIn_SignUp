@@ -20,8 +20,8 @@
                         <div class="col-md-9">
                             <div class="mb-3">
                                 <label for="name" class="form-label">Name</label>
-                                <input type="text" name="name" class="form-control" id="name" placeholder="Your Name"
-                                    required>
+                                <input type="text" name="name" class="form-control" id="name"
+                                    placeholder="Your Name" required>
                             </div>
                             <div class="mb-3">
                                 <label for="email" class="form-label">Email address</label>
@@ -55,7 +55,7 @@
                                     </div>
                                 </div>
                                 <div class="col-3">
-                                    <div class="mb-3">Status:
+                                    <div class="mb-3"><label for="">Status:</label>
                                         <select class="form-select" id="salute" name="salute" aria-label="Title"
                                             required>
                                             <option selected disabled>Select</option>
@@ -104,6 +104,5 @@
         .form-label {
             font-weight: bold;
         }
-
     </style>
 @endsection
